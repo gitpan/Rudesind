@@ -1,11 +1,11 @@
-<h1 class="Rudesind-title"><% $image ? $image->filename : $dir->title | h %></h1>
+<h1 class="Rudesind-title"><% $image ? $image->filename : $gallery->title | h %></h1>
 <h2 class="Rudesind-breadcrumb">
-% if ( @dirs || $last ) {
+% if ( @galleries || $last ) {
 <a href="<% $App->config->uri_root %>/">top</a> &middot;
-%   foreach my $x ( 0 .. $#dirs ) {
-%     my $path = join '/', @dirs[0..$x];
-<a href="<% $App->config->uri_root %>/<% $path %>"><% $path eq '' ? 'top' : $dirs[$x] | h %></a>
-%     if ( $x < $#dirs || ! $image ) {
+%   foreach my $x ( 0 .. $#galleries ) {
+%     my $path = join '/', @galleries[0..$x];
+<a href="<% $App->config->uri_root %>/<% $path %>"><% $path eq '' ? 'top' : $galleries[$x] | h %></a>
+%     if ( $x < $#galleries || ! $image ) {
  &middot;
 %     }
 %   }
@@ -30,13 +30,13 @@
 % }
 
 <%args>
-$dir
+$gallery
 $image => undef
 </%args>
 
 <%init>
-my @dirs = split /\//, $dir->path;
+my @galleries = split /\//, $gallery->path;
 
 my $last;
-$last = pop @dirs unless $image;
+$last = pop @galleries unless $image;
 </%init>

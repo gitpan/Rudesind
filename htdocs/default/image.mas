@@ -36,7 +36,7 @@
 % }
   </td>
   <td>
-   <a href="<% $App->config->image_uri_root %>/images/<% $image->path %>">\
+   <a href="<% $App->config->raw_image_subdir %>/<% $image->path %>">\
 <img src="<% $image->transformed_image_uri( transforms => $transforms ) %>"
      <% Image::Size::html_imgsize( $image->transformed_image_file( transforms => $transforms ) ) %>
      class="Rudesind-image" border="0" /></a>
@@ -54,10 +54,10 @@ $transforms => 'default'
 </%args>
 
 <%init>
-my $dir = $image->directory;
+my $gallery = $image->gallery;
 
-my $prev = $dir->previous_image($image);
-my $next = $dir->next_image($image);
+my $prev = $gallery->previous_image($image);
+my $next = $gallery->next_image($image);
 
 $m->autoflush(1) unless $image->has_transformed_image_file( transforms => $transforms );
 </%init>

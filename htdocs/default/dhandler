@@ -1,5 +1,5 @@
 <%args>
-$dir
+$gallery
 $image => undef
 </%args>
 
@@ -10,6 +10,6 @@ if ($image)
 }
 else
 {
-    $m->comp( 'directory.mas', %ARGS );
+    $m->comp( 'gallery.mas', %ARGS );
 }
 </%init>

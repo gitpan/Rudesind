@@ -2,9 +2,10 @@ package Rudesind::Captioned;
 
 use strict;
 
-use File::Slurp ();
-use Rudesind;
+use Class::Roles role => [ qw( has_caption caption save_caption caption_as_html ) ];
 
+use File::Slurp ();
+use Rudesind::UI;
 
 sub has_caption
 {
@@ -37,7 +38,7 @@ sub save_caption
     delete $self->{caption};
 
     my $file = $self->_caption_file;
-    if ( length $caption )
+    if ( defined $caption && length $caption )
     {
         open my $fh, '>', $file
             or die "Cannot write to $file: $!";
@@ -58,10 +59,57 @@ sub caption_as_html
 {
     my $self = shift;
 
-    return Rudesind::text_to_html( $self->caption );
+    return Rudesind::UI::text_to_html( $self->caption );
 }
 
 
 1;
 
 __END__
+
+=pod
+
+=head1 NAME
+
+Rudesind::Captioned - A role for things with captions
+
+=head1 SYNOPSIS
+
+  use Class::Roles does => 'Rudesind::Captioned';
+
+  $self->caption
+
+=head1 DESCRIPTION
+
+This module provides a role for objects which are captioned, galleries
+and images.  Any class that uses it must provide a C<_caption_file()>
+method.
+
+It provides the following methods:
+
+=over 4
+
+=item * has_caption
+
+Returns a boolean indicating whether or not the object has an existing
+caption.
+
+=item * caption
+
+Returns the object's caption.  Returns a false value if no caption
+exists.
+
+=item * save_caption ($caption)
+
+Given a string, this method saves the caption.  If the argument given
+is undefined or the empty string, it deletes the object's caption file
+entirely.
+
+=item * caption_as_html
+
+Calls C<Rudesind::UI::text_to_html()> to turn the object's caption
+into HTML.
+
+=back
+
+=cut

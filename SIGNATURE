@@ -14,40 +14,41 @@ not run its Makefile.PL or Build.PL.
 -----BEGIN PGP SIGNED MESSAGE-----
 Hash: SHA1
 
-SHA1 120e70622a60a8b999915b92a82ce5dff40979db Build.PL
-SHA1 5edd4e40f360dfb65e5b491a2954f1f334078b71 Changes
+SHA1 1bc7d46d05e0207d11e1c7d493c82e94b0fdd63d Build.PL
+SHA1 b063274f7acc3cf94fdf130d327be179b2ecd3c6 Changes
 SHA1 f235ba4160673bcb7c9d58c2f09dbc7fc0efadea LICENSE
-SHA1 4cc77e83b2540a50a2b1d4eda4b0f426317469fb MANIFEST
+SHA1 95b51d8a6efaebd6fb0ce38428382f9e7df477c8 MANIFEST
 SHA1 42553de8a2748e3f6cd1af93b0104fa04946ce30 MANIFEST.SKIP
-SHA1 275105b988b6cf4915a4e0489df3c836642e64a4 META.yml
+SHA1 aa2edb4350a2cd54d82b26709ca4361c37626196 META.yml
 SHA1 134086dddebf99a773ebcc42d9a5abfcdb5a1b27 Makefile.PL
 SHA1 adf122d066f77725a89f31e22b838beea4fa300b README
 SHA1 5b0dbda20a59989d5a5a9c9f1d107f9df130416f TODO
 SHA1 7691a48a714fe59d54c3b06d661e69036e5da29a htdocs/default/admin/autohandler
-SHA1 c88c82529f6221e75ca77f12a5cb4748b9f9c1a3 htdocs/default/admin/edit_caption.html
+SHA1 4cd1775247f5eeacadabf3931cccaa9af430dbde htdocs/default/admin/edit_caption.html
 SHA1 897724d039962d9b11f75cf6723deefd6c95b9ba htdocs/default/admin/login.html
-SHA1 eee47d444256465d7644efe6ba928c459ee87426 htdocs/default/autohandler
-SHA1 0c242f1a37c9d1ff9d0762e00fbe08e72a81e606 htdocs/default/dhandler
-SHA1 d85a27c8da38d63f6b39ca6b5faf34896b037eeb htdocs/default/directory.mas
+SHA1 e4a036b34128380e28561cb947cf13d093b44f4a htdocs/default/autohandler
+SHA1 8eb9516a9064e2f5d31069310352c911082e9b61 htdocs/default/dhandler
 SHA1 58609f87ab01ca773ca63438affdd2b083d33f70 htdocs/default/footer.mas
-SHA1 3c42a913d7d20eb5fb5e0ddd3f1a741f9af3a5c7 htdocs/default/header.mas
-SHA1 df7fc8f3354a05d4c84699d67e579ef25d78e09e htdocs/default/image.mas
-SHA1 86440f185ec45feca33e52089465a9d8507c53b9 htdocs/default/plain/default.css
-SHA1 a339489eef272bb28e1442da8a3b14a166ca3ff2 htdocs/default/thumbnail_table.mas
+SHA1 fbae71d17f47c0c86e5e9139e791f5ab6b885548 htdocs/default/gallery.mas
+SHA1 2b8fe9f92b530c6d4a3e50b549c00cd112db66b2 htdocs/default/header.mas
+SHA1 948c72fc64589f039e19ae8ec505cd4ca9e8bb7a htdocs/default/image.mas
+SHA1 9cf13ffaf2eba3416278660859dc29517650a0e0 htdocs/default/plain/default.css
+SHA1 13f323d0e51a41606756c9112f601ee07c98d7bb htdocs/default/thumbnail_table.mas
 SHA1 8492328d13a8b1400306329b1fb0686a1b41f97f htdocs/default/wiki.html
 SHA1 704cd06fc9301ee076219e7238715eb754d72228 inc/Rudesind/Build.pm
-SHA1 5d3e085624ab96bcfd7684fc8810922c2a458065 lib/Rudesind.pm
-SHA1 0e0c22cdf51bb1c4640d668c99387e0f244cbb38 lib/Rudesind/Captioned.pm
-SHA1 59c54e46ebd059542e3f0be3f9b1beab12260785 lib/Rudesind/Config.pm
-SHA1 ccbd78a24197b14bfd951dc53a374abd13037809 lib/Rudesind/Directory.pm
-SHA1 7aaccc87ca1b34885420c137948e57687ba4a3c4 lib/Rudesind/Handler.pm
-SHA1 897fc0a13f0f7bb60d9605b891cf4c80d69e5ee0 lib/Rudesind/Image.pm
-SHA1 df77946188dcb0904576d935dd3a987ee5ce8553 lib/Rudesind/WebApp.pm
-SHA1 98cbe6911ef33d74c0e5054350b097b8742bb0d7 test-httpd.conf
+SHA1 3958aa29dca23f3a13d5b3f39b98d5e2fa122134 lib/Rudesind.pm
+SHA1 3a385199f8c2793dd5f25791e21d2c894d082ee4 lib/Rudesind/Captioned.pm
+SHA1 339cd250ac50f08854b7b817b04b17f4662d54e4 lib/Rudesind/Config.pm
+SHA1 097ef005d2354ec7488f787aaed4e861c489f096 lib/Rudesind/Gallery.pm
+SHA1 57b234c8a7d23a4e843736f9159ffd55ed68919e lib/Rudesind/Handler.pm
+SHA1 f5aeabcd37c3349fafcd3863c2bcff02958700c1 lib/Rudesind/Image.pm
+SHA1 114be146aea2516f039accefcad0a7dd0cc68a33 lib/Rudesind/UI.pm
+SHA1 28ea63ca72828d2ff636b55d998334376c375855 lib/Rudesind/WebApp.pm
+SHA1 26a11f213e678d0686536848c08abfef1ebb0adb test-httpd.conf
 -----BEGIN PGP SIGNATURE-----
 Version: GnuPG v1.2.4 (GNU/Linux)
 
-iD8DBQFAv4SY+4tbS/niBUoRAvtOAJ9yg6kzuKCxfJFaDnkeSv/badoOxwCgh1eI
-McyR7jjAtQ/NnEJu+n6YnZc=
-=P8yH
+iD8DBQFAwkTw+4tbS/niBUoRAu1wAJ9S9jF5OABei+jDq1k5Hwux12mtBwCfdn0p
+Z75ttzu+JIaxZV6tzv31Upc=
+=xKwj
 -----END PGP SIGNATURE-----

@@ -77,3 +77,24 @@ sub _apachehandler
 1;
 
 __END__
+
+=pod
+
+=head1 NAME
+
+Rudesind::Handler - The mod_perl handler for Rudesind
+
+=head1 SYNOPSIS
+
+  <Location /Rudesind>
+    SetHandler perl-script
+    PerlHandler Rudesind::Handler
+  </Location>
+
+=head1 DESCRIPTION
+
+This module provides a C<handler()> subroutine for mod_perl.  It
+fudges the URI so that Mason's standard resolver works even though the
+incoming URI may not match a path on the filesystem.
+
+=cut

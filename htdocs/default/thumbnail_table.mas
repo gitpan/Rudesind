@@ -3,7 +3,7 @@
   <tr>
 % foreach my $image (@images) {
    <td>
-    <& .thumbnail_and_caption, image => $image, dir => $dir &>
+    <& .thumbnail_and_caption, image => $image, gallery => $gallery &>
 % if ( $image->has_caption ) {
      <div class="Rudesind-caption">
       <% $image->caption_as_html %>
@@ -25,7 +25,7 @@
 </div>
 
 <%args>
-$dir
+$gallery
 @images
 </%args>
 
@@ -45,8 +45,8 @@ my $x = 1;
      border="0" class="Rudesind-thumbnail"></a>
 
 <%args>
+$gallery
 $image
-$dir
 </%args>
 
 <%init>

@@ -21,7 +21,7 @@ p.Rudesind-message {
     color: blue;
 }
 
-div.Rudesind-directory-nav {
+div.Rudesind-gallery-nav {
     float: left;
     width: 25%;
 }
@@ -56,7 +56,7 @@ div.Rudesind-thumbnail-div table {
 }
 
 div.Rudesind-thumbnail-div table tr td {
-    background: #EEE;
+    background: #eee;
     padding: 10px;
 }
 
@@ -65,7 +65,7 @@ div.Rudesind-thumbnail-div table tr td div.Rudesind-caption {
 }
 
 div.Rudesind-thumbnail-div table tr td.Rudesind-thumbnail-table-empty-cell {
-    background: #FFF;
+    background: #fff;
 }
 
 div..Rudesind-thumbnail-div table tr td a {

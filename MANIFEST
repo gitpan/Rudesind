@@ -5,8 +5,8 @@ htdocs/default/admin/edit_caption.html
 htdocs/default/admin/login.html
 htdocs/default/autohandler
 htdocs/default/dhandler
-htdocs/default/directory.mas
 htdocs/default/footer.mas
+htdocs/default/gallery.mas
 htdocs/default/header.mas
 htdocs/default/image.mas
 htdocs/default/plain/default.css
@@ -16,9 +16,10 @@ inc/Rudesind/Build.pm
 lib/Rudesind.pm
 lib/Rudesind/Captioned.pm
 lib/Rudesind/Config.pm
-lib/Rudesind/Directory.pm
+lib/Rudesind/Gallery.pm
 lib/Rudesind/Handler.pm
 lib/Rudesind/Image.pm
+lib/Rudesind/UI.pm
 lib/Rudesind/WebApp.pm
 LICENSE
 Makefile.PL

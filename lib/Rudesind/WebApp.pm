@@ -4,7 +4,9 @@ use base 'MasonX::WebApp';
 
 use Apache::Session::Wrapper;
 use File::Path ();
+
 use Rudesind::Config;
+use Rudesind::UI;
 
 
 __PACKAGE__->UseSession(1);
@@ -79,12 +81,12 @@ sub login
     my $self = shift;
 
     $self->_handle_error( error => 'No password defined in config file',
-                          uri   => $self->config->uri_root . '/admin/login.mhtml',
+                          uri   => $self->config->uri_root . '/admin/login.html',
                         )
         unless defined $self->config->admin_password;
 
     $self->_handle_error( error => 'Incorrect password',
-                          uri   => $self->config->uri_root . '/admin/login.mhtml',
+                          uri   => $self->config->uri_root . '/admin/login.html',
                         )
         unless $self->args->{password} eq $self->config->admin_password;
 
@@ -114,7 +116,7 @@ sub edit_caption
         unless $self->is_admin;
 
     my ( $dir, $image ) =
-        Rudesind::new_from_path( $self->args->{path}, $self->config );
+        Rudesind::UI::new_from_path( $self->args->{path}, $self->config );
     my $thing = $image ? $image : $dir;
 
     $thing->save_caption( $self->args->{caption} );
@@ -136,3 +138,68 @@ sub edit_caption
 
 __END__
 
+=pod
+
+=head1 NAME
+
+Rudesind::WebApp - A MasonX::WebApp subclass for the Rudesind application.
+
+=head1 SYNOPSIS
+
+  if ( $App->is_admin ) { ... }
+
+=head1 DESCRIPTION
+
+This class provides some Rudesind-specific functionality by
+subclassing MasonX::WebApp.  It stores sessions in the a directory
+called F<sessions> under the temp directory defined by the
+configuration.
+
+=head1 HANDLED URIS
+
+This class handles the following URIs:
+
+=over 4
+
+=item * <URI ROOT>/login
+
+Expects to be given an "admin_password" argument.  If this is defined
+in the configuration file, and the given argument matches this
+parameter, the browser session is logged-in.
+
+=item * <URI ROOT>/logout
+
+Logs the browser out.
+
+=item * <URI ROOT>/logout
+
+Expects a "path" argument, which will either be a gallery or image.
+It calls C<save_caption()> with the "caption" argument on the object
+defined by the "path" argument.
+
+=back
+
+=head1 METHODS
+
+This class provides the following methods:
+
+=over 4
+
+=item * config
+
+Returns a C<Rudesind::Config> object.
+
+=item * is_admin
+
+Returns a boolean indicating whether or not the browser is logged-in
+as an admin.  If basic auth for the admin area succeeded in the past,
+then the browser is logged-in.
+
+=item * basic_auth
+
+Returns a boolean indicating whether or not the basic auth for the
+admin area succeeded.
+
+=back
+
+=cut

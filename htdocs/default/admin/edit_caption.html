@@ -21,6 +21,6 @@ $path
 </%args>
 
 <%init>
-my ( $dir, $image ) = Rudesind::new_from_path( $path, $App->config );
+my ( $dir, $image ) = Rudesind::UI::new_from_path( $path, $App->config );
 my $thing = $image ? $image : $dir;
 </%init>

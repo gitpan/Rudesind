@@ -8,51 +8,14 @@ use File::Slurp ();
 use File::Spec;
 use Image::Magick ();
 use Path::Class ();
-use Text::WikiFormat ();
 
 use Rudesind::Config;
-use Rudesind::Directory;
+use Rudesind::Gallery;
 use Rudesind::Image;
+use Rudesind::UI;
 
-$Rudesind::VERSION = 0.01;
 
-
-sub text_to_html
-{
-    return Text::WikiFormat::format( $_[0],
-                                     {},
-                                     { implicit_links => 0,
-                                       absolute_links => 1,
-                                       extended => 1,
-                                     },
-                                   );
-}
-
-sub new_from_path
-{
-    my $path = shift;
-    my $config = shift;
-
-    my $re = Rudesind::Image->image_extension_re;
-
-    if ( $path =~ s/\.html$// || $path =~ /$re/ )
-    {
-        my ( $dir_path, $file ) = $path =~ m{(.+?)/([^/]+$)};
-
-        $dir_path ||= '/';
-        $file ||= $path;
-
-        my $dir = Rudesind::Directory->new( path => $dir_path, config => $config );
-
-        return unless $dir;
-
-        return ( $dir, $dir->image($file) );
-    }
-    else
-    {
-        return ( Rudesind::Directory->new( path => $path, config => $config ) );
-    }
-}
+$Rudesind::VERSION = 0.02;
 
 
 1;
@@ -128,8 +91,31 @@ F<gallery>
 To make an image available in the gallery, we can place them under the
 directory defined by concatenating our "root_dir" and "raw_image_subdir",
 F</var/www/gallery/images>.  You can create a hierarchy of
-subdirectories under this directory as you see fit.  Images are
+galleries under this directory as you see fit.  Images are
 displayed sorted ASCII-betically by filename.
+
+=head2 Setting the Configuration File Location
+
+By default, Rudesind will look for the configuration file in the
+following locations:
+
+=over 4
+
+=item * $ENV{RUDESIND_CONFIG}
+
+=item * $ENV{HOME}/.Rudesind.conf
+
+=item * /etc/Rudesind.conf
+
+=item * /etc/Rudesind/Rudesind.conf
+
+=item * /opt/Rudesind/Rudesind.conf
+
+=back
+
+You can have multiple configuratoins with a single server by using
+C<PerlSetEnv RUDESIND_CONFIG> in different Apache configuration
+blocks.
 
 =head2 Apache/mod_perl Configuration
 
@@ -146,7 +132,7 @@ should look like this:
 
 You also need to set up a handler for the "image_uri_root" URI.
 Images go into the directory defined by the "raw_image_subdir"
-directory.  So if this is set to F<images>, they will go into
+parameter.  So if this is set to F<images>, they will go into
 F</var/www/gallery/images>.  The image cache files are stored under
 the root directory in an F<image-cache> directory.  So they will be in
 F</var/www/gallery/image-cache>.

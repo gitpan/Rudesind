@@ -1,3 +1,20 @@
+0.02   2004-06-05
+
+- Fix various bugs related to calculating raw and cached image paths.
+
+- Documented all the modules.
+
+- Failed admin logins redirected to a non-existent URI.
+
+- Move some functions around.
+
+- Replaced the term "directory" with "gallery" throughout the code and
+style sheet.
+
+- Use Class::Roles to implement captioning (it just seems more correct
+than using inheritance here).
+
+
 0.01   2004-06-03
 
 - First release.
