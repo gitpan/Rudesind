@@ -1,0 +1,40 @@
+<html>
+<head>
+<title><& SELF:title &></title>
+<link rel="StyleSheet" href="<% $App->config->uri_root %>/plain/<% $view %>.css" type="text/css" />
+</head>
+
+<body>
+
+<& header.mas, %ARGS, dir => $dir, image => $image &>
+
+% foreach my $e ( $App->errors ) {
+<p class="Rudesind-error-message"><% $e | h %></p>
+% }
+
+% foreach my $msg ( $App->messages ) {
+<p class="Rudesind-message"><% $msg | h %></p>
+% }
+
+% $m->call_next( dir => $dir, image => $image );
+
+<& footer.mas, %ARGS, dir => $dir, image => $image &>
+
+</body>
+</html>
+
+<%shared>
+my $view = $App->config->view;
+
+my $path = $m->dhandler_arg || '/';
+
+my ( $dir, $image ) = Rudesind::new_from_path( $path, $App->config );
+
+$m->redirect( $App->config->uri_root . '/' ) unless $dir;
+
+$r->content_type( 'text/html; charset=' . $App->config->charset );
+</%shared>
+
+<%method title>
+<% $dir->title | h %>
+</%method>
