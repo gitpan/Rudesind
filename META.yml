@@ -1,6 +1,6 @@
 --- #YAML:1.0
 name: Rudesind
-version: 0.02
+version: 0.03
 author: ~
 abstract: A Mason-based image gallery
 license: perl
@@ -8,6 +8,7 @@ requires:
   Apache::Request: 0
   Class::Roles: 0
   Config::Auto: 0
+  File::Find::Rule: 0
   File::Slurp: 0
   HTML::Mason: 1.10
   Image::Magick: 0
@@ -19,7 +20,7 @@ requires:
 provides:
   Rudesind:
     file: lib/Rudesind.pm
-    version: 0.02
+    version: 0.03
   Rudesind::Captioned:
     file: lib/Rudesind/Captioned.pm
   Rudesind::Config:
@@ -34,4 +35,4 @@ provides:
     file: lib/Rudesind/UI.pm
   Rudesind::WebApp:
     file: lib/Rudesind/WebApp.pm
-generated_by: Module::Build version 0.25
+generated_by: Module::Build version 0.2607

@@ -14,6 +14,7 @@ my $build =
                           { 'Apache::Request'  => 0,
                             'Class::Roles'     => 0,
                             'Config::Auto'     => 0,
+                            'File::Find::Rule' => 0,
                             'File::Slurp'      => 0,
                             'HTML::Mason'      => '1.10',
                             'Image::Magick'    => 0,

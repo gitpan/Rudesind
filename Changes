@@ -1,3 +1,10 @@
+0.03   2005-01-07
+
+- Add missing prereq of File::Find::Rule, and make sure that
+Rudesing::Build loads it with require, so installation doesn't blow up
+before it can be detected as a prereq.
+
+
 0.02   2004-06-05
 
 - Fix various bugs related to calculating raw and cached image paths.

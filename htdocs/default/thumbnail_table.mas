@@ -1,6 +1,6 @@
 <div class="Rudesind-thumbnail-div">
  <table>
-  <tr>
+  <tr valign="top">
 % foreach my $image (@images) {
    <td>
     <& .thumbnail_and_caption, image => $image, gallery => $gallery &>
@@ -12,7 +12,7 @@
    </td>
 %   unless ( $x++ % $width ) {
   </tr>
-  <tr>
+  <tr valign="top">
 %   }
 % }
 % if ($extra_cells) {

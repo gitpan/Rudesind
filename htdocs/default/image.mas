@@ -36,7 +36,7 @@
 % }
   </td>
   <td>
-   <a href="<% $App->config->raw_image_subdir %>/<% $image->path %>">\
+   <a href="<% $App->config->image_uri_root %><% $App->config->raw_image_subdir %>/<% $image->path %>">\
 <img src="<% $image->transformed_image_uri( transforms => $transforms ) %>"
      <% Image::Size::html_imgsize( $image->transformed_image_file( transforms => $transforms ) ) %>
      class="Rudesind-image" border="0" /></a>

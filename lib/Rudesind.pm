@@ -15,7 +15,7 @@ use Rudesind::Image;
 use Rudesind::UI;
 
 
-$Rudesind::VERSION = 0.02;
+$Rudesind::VERSION = 0.03;
 
 
 1;

@@ -59,7 +59,7 @@ Rudesind::UI - Functions used by the Rudesind UI
 
 =head1 SYNOPSIS
 
-  my ( $dir, $image ) = Rudesind::UI::new_from_path( $path );
+  my ( $gallery, $image ) = Rudesind::UI::new_from_path( $path );
 
   my $html = Rudesind::UI::text_to_html( $image->caption );
 

@@ -6,7 +6,6 @@ use base 'Module::Build';
 
 use File::Basename ();
 use File::Copy ();
-use File::Find::Rule;
 use File::Spec;
 use Rudesind::Config;
 
@@ -77,6 +76,9 @@ sub ACTION_install_htdocs
 {
     my $self = shift;
 
+    # Don't use "use", or we'll short-circuit attempts to figure out
+    # this distro's prereqs.
+    require File::Find::Rule;
     my $rule = File::Find::Rule->new;
 
     my @files =
