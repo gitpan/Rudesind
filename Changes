@@ -1,8 +1,15 @@
+0.04   2005-01-08
+
+- Make sure that Rudesing::Build loads Rudesing::Config in an eval, so
+installation doesn't blow up before Path::Class and Config::Auto are
+installed.  Reported by Barry Hoggard.
+
+
 0.03   2005-01-07
 
 - Add missing prereq of File::Find::Rule, and make sure that
 Rudesing::Build loads it with require, so installation doesn't blow up
-before it can be detected as a prereq.
+before it can be detected as a prereq.  Reported by Barry Hoggard.
 
 
 0.02   2004-06-05

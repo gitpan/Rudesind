@@ -7,7 +7,6 @@ use base 'Module::Build';
 use File::Basename ();
 use File::Copy ();
 use File::Spec;
-use Rudesind::Config;
 
 sub get_html_dir
 {
@@ -39,7 +38,7 @@ sub get_config_dir
 {
     my $self = shift;
 
-    my $config = eval { Rudesind::Config->new };
+    my $config = eval { require Rudesind::Config; Rudesind::Config->new };
 
     if ($config)
     {
